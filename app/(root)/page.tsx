@@ -1,5 +1,7 @@
-import StartupCard from "@/components/StartupCard";
+import StartupCard, { StartupTypeCard } from "@/components/StartupCard";
 import SearchForm from "../../components/SearchForm";
+import { client } from "@/sanity/lib/client";
+import { STARTUPS_QUERY } from "@/sanity/lib/queries";
 
 export default async function Home({
   searchParams,
@@ -8,63 +10,9 @@ export default async function Home({
 }) {
   const query = (await searchParams).query;
 
-  const posts = [
-    {
-      _createdAt: new Date(),
-      views: 35,
-      author: { id: 1, name: "Aniket" },
-      _id: 1,
-      description: "This is a description",
-      image:
-        "https://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/alien_2_1.png",
-      category: "Robots",
-      title: "We Robots",
-    },
-    {
-      _createdAt: new Date(),
-      views: 35,
-      author: { id: 1 },
-      _id: 1,
-      description: "This is a description",
-      image:
-        "https://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/alien_2_1.png",
-      category: "Robots",
-      title: "We Robots",
-    },
-    {
-      _createdAt: new Date(),
-      views: 35,
-      author: { id: 1 },
-      _id: 1,
-      description: "This is a description",
-      image:
-        "https://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/alien_2_1.png",
-      category: "Robots",
-      title: "We Robots",
-    },
-    {
-      _createdAt: new Date(),
-      views: 35,
-      author: { id: 1 },
-      _id: 1,
-      description: "This is a description",
-      image:
-        "https://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/alien_2_1.png",
-      category: "Robots",
-      title: "We Robots",
-    },
-    {
-      _createdAt: new Date(),
-      views: 35,
-      author: { id: 1 },
-      _id: 1,
-      description: "This is a description",
-      image:
-        "https://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/alien_2_1.png",
-      category: "Robots",
-      title: "We Robots",
-    },
-  ];
+  const posts = await client.fetch(STARTUPS_QUERY);
+  console.log(JSON.stringify(posts, null , 2))
+
   return (
     <>
       <section className="pink_container">
@@ -86,7 +34,7 @@ export default async function Home({
         </p>
         <ul className="mt-7 card_grid">
           {posts.length > 0 ? (
-            posts.map((post, index) => (
+            posts.map((post: StartupTypeCard, index: number) => (
               <StartupCard key={`post-${index}`} post={post} />
             ))
           ) : (
