@@ -22,6 +22,7 @@
 2. ⚙️ [Tech Stack](#tech-stack)
 3. 🔋 [Features](#features)
 4. 🤸 [Quick Start](#quick-start)
+5. 🔗 [Assets](#links)
 
 ## <a name="introduction">🤖 Introduction</a>
 
@@ -116,3 +117,9 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser to view the project.
+
+## <a name="links">🔗 Assets</a>
+
+- Fonts and Assets used in the project can be found [here](https://drive.google.com/file/d/1OEFHnEq5pQFP86u8FOBLBBNxKPsbjjqU/view?usp=sharing)
+- [Learn Server Actions](https://youtu.be/FKZAXFjxlJI?feature=shared)
+- [Applicaton Workflow](https://miro.com/app/board/uXjVLT_tMdU=/?share_link_id=580854757703)
